@@ -1,0 +1,136 @@
+@charset "utf-8";
+
+.JQ-oldData {
+	display: none;
+}
+
+/* use absolute */
+.JQSelect-blockCenMid {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 1em;
+	margin: auto;
+}
+
+/* use translate of transform 
+   Attention: interfere in other transform;
+*/
+.JQSelect-transCenMid {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	transform: translateY(-50%);
+	text-align: center;
+	white-space: nowrap;
+}
+
+.JQSelect-wrapper {
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+		-ms-user-select: none;
+			user-select: none;
+}
+
+.JQSelect-selected {
+	position: relative;
+	box-sizing: border-box;
+	width: 100px;
+	height: 30px;
+	min-height: 24px;
+	overflow: hidden;
+	border: 1px solid #ccc;
+}
+
+/* selected value align center */
+.JQSelect-selected .val {
+	right: 24px;
+	text-align: center;
+	white-space: nowrap;
+}
+
+.JQSelect-icon {
+	display: inline-block;
+	left: auto;
+	width: 24px;
+	height: 24px;
+	background: url('../imgs/drop-down.png') center no-repeat;
+	transition: transform .3s;
+}
+
+.JQSelect-rotate180 {
+	transform: rotate(180deg);
+}
+
+.JQSelect-options {
+	display: none;
+	position: absolute;
+	top: 30px;
+	/*min-height: 30px;*/
+	max-height: 500px;
+	width: 100px;
+	height: auto;{
+	    // The tab key will cycle through the settings when first created
+	    // Visit http://wbond.net/sublime_packages/sftp/settings for help
+	    
+	    // sftp, ftp or ftps
+	    "type": "sftp",
+	
+	    "sync_down_on_open": true,
+	    "sync_same_age": true,
+	    
+	    "host": "example.com",
+	    "user": "username",
+	    //"password": "password",
+	    //"port": "22",
+	    
+	    "remote_path": "/example/path/",
+	    //"file_permissions": "664",
+	    //"dir_permissions": "775",
+	    
+	    //"extra_list_connections": 0,
+	
+	    "connect_timeout": 30,
+	    //"keepalive": 120,
+	    //"ftp_passive_mode": true,
+	    //"ftp_obey_passive_host": false,
+	    //"ssh_key_file": "~/.ssh/id_rsa",
+	    //"sftp_flags": ["-F", "/path/to/ssh_config"],
+	    
+	    //"preserve_modification_times": false,
+	    //"remote_time_offset_in_hours": 0,
+	    //"remote_encoding": "utf-8",
+	    //"remote_locale": "C",
+	    //"allow_config_upload": false,
+	}
+	
+	overflow-y: auto;
+	box-sizing: border-box;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	text-align: center;  /* options value align */
+}
+
+.JQSelect-options li {
+	position: relative;
+	width: 100%;
+	height: 30px;
+	background: #fff;
+	box-sizing: border-box;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+}
+
+.JQSelect-options li:hover {
+	background: #2e95ff;
+	color: #fff;
+	border-left: none;
+	border-right: none;
+}
