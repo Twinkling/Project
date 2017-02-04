@@ -2,53 +2,29 @@
 <html lang="en" style="font-size: 12px;">
 <head>
 	<meta charset="UTF-8">
-	<title>搜索</title>
+	<title>jQuery 下拉框</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/JQSelect.css">
 	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 </head>
 <body style="margin: 100px;">
-	<!-- <div class="nav"><a href=""></a>你好</div> -->
-	<!-- <div id="select"></div> -->
+
 	<div id="select" class="select"></div>
 	<div class="select"></div>
 	
-	<!-- <div class="JQSelect-wrapper" id='test' onselectstart="return false;" unselectable="on">
-		<div class="JQSelect-selected" data-value=""><input type="hidden"><span class="JQSelect-blockCenMid val">湖里区</span><i class="JQSelect-icon JQSelect-blockCenMid"></i></div>
-		<div class="JQSelect-options">
-			<ul>
-				<li data-value="value1"><span class="JQSelect-blockCenMid">海沧区</span></li>
-				<li data-value="value2"><span class="JQSelect-blockCenMid">思明区</span></li>
-				<li data-value="value3"><span class="JQSelect-blockCenMid">湖里区</span></li>
-				<li data-value="value4"><span class="JQSelect-blockCenMid">集美区</span></li>
-				<li data-value="value5"><span class="JQSelect-blockCenMid">翔安区</span></li>
-				<li data-value="value6"><span class="JQSelect-blockCenMid">同安区</span></li>
-			</ul>
-		</div>
-	</div> -->
 
 	<script type="text/javascript" src="js/JQSelect.js"></script>
 	<script type="text/javascript">
-		// $('#select').JQSelect({
-		// 	width: 100,
-		// 	height: 20,
-		// 	textAlign: 'left',
-		// 	url: 'data/select.json',
-		// 	data: [
-		// 		{value: 'value1',text: 'text1'},
-		// 		{value: 'value2',text: 'text2'}
-		// 	]
-		// });
 		$('.select').JQSelect({
-			width: 80,
-			height: 20,
+			width: 100,
+			height: 30,
 			url: 'data/select.json',
 			method: 'get',			
-			// onBeforeLoad: function(params) {return true;},  
 			filter: function(data) {return data;},
 			onChange: function(oldVal, newVal) {console.log(this);},
 			onBeforeSelect: function(record) {console.log(this);},
+			onBeforeLoad: function(params) {console.log(this);},  
 			onAfterSelect: function(record) {console.log(this);},
 			onLoadSuccess: function(data) {console.log(this);},  
 			onLoadError: function(error) {console.log(this);}
