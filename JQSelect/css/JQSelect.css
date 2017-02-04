@@ -16,7 +16,7 @@
 }
 
 /* use translate of transform 
-   Attention: interfere in other transform;
+   Attention: interfere with other transform;
 */
 .JQSelect-transCenMid {
 	position: absolute;
@@ -44,7 +44,7 @@
 	box-sizing: border-box;
 	width: 100px;
 	height: 30px;
-	min-height: 24px;
+	/*min-height: 24px;*/
 	overflow: hidden;
 	border: 1px solid #ccc;
 }
@@ -62,7 +62,7 @@
 	width: 24px;
 	height: 24px;
 	background: url('../imgs/drop-down.png') center no-repeat;
-	transition: transform .3s;
+	transition: transform .5s;
 }
 
 .JQSelect-rotate180 {
@@ -76,41 +76,7 @@
 	/*min-height: 30px;*/
 	max-height: 500px;
 	width: 100px;
-	height: auto;{
-	    // The tab key will cycle through the settings when first created
-	    // Visit http://wbond.net/sublime_packages/sftp/settings for help
-	    
-	    // sftp, ftp or ftps
-	    "type": "sftp",
-	
-	    "sync_down_on_open": true,
-	    "sync_same_age": true,
-	    
-	    "host": "example.com",
-	    "user": "username",
-	    //"password": "password",
-	    //"port": "22",
-	    
-	    "remote_path": "/example/path/",
-	    //"file_permissions": "664",
-	    //"dir_permissions": "775",
-	    
-	    //"extra_list_connections": 0,
-	
-	    "connect_timeout": 30,
-	    //"keepalive": 120,
-	    //"ftp_passive_mode": true,
-	    //"ftp_obey_passive_host": false,
-	    //"ssh_key_file": "~/.ssh/id_rsa",
-	    //"sftp_flags": ["-F", "/path/to/ssh_config"],
-	    
-	    //"preserve_modification_times": false,
-	    //"remote_time_offset_in_hours": 0,
-	    //"remote_encoding": "utf-8",
-	    //"remote_locale": "C",
-	    //"allow_config_upload": false,
-	}
-	
+	height: auto;
 	overflow-y: auto;
 	box-sizing: border-box;
 	border-top: 1px solid #ccc;

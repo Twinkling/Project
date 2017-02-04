@@ -10,8 +10,12 @@
 </head>
 <body style="margin: 100px;">
 	<!-- <div class="nav"><a href=""></a>你好</div> -->
-	<div class="JQSelect-wrapper" onselectstart="return false;" unselectable="on">
-		<div class="JQSelect-selected" data-value=""><span class="JQSelect-blockCenMid val">湖里区</span><i class="JQSelect-icon JQSelect-blockCenMid"></i></div>
+	<!-- <div id="select"></div> -->
+	<div id="select" class="select"></div>
+	<div class="select"></div>
+	
+	<!-- <div class="JQSelect-wrapper" id='test' onselectstart="return false;" unselectable="on">
+		<div class="JQSelect-selected" data-value=""><input type="hidden"><span class="JQSelect-blockCenMid val">湖里区</span><i class="JQSelect-icon JQSelect-blockCenMid"></i></div>
 		<div class="JQSelect-options">
 			<ul>
 				<li data-value="value1"><span class="JQSelect-blockCenMid">海沧区</span></li>
@@ -22,7 +26,35 @@
 				<li data-value="value6"><span class="JQSelect-blockCenMid">同安区</span></li>
 			</ul>
 		</div>
-	</div>
+	</div> -->
+
 	<script type="text/javascript" src="js/JQSelect.js"></script>
+	<script type="text/javascript">
+		// $('#select').JQSelect({
+		// 	width: 100,
+		// 	height: 20,
+		// 	textAlign: 'left',
+		// 	url: 'data/select.json',
+		// 	data: [
+		// 		{value: 'value1',text: 'text1'},
+		// 		{value: 'value2',text: 'text2'}
+		// 	]
+		// });
+		$('.select').JQSelect({
+			width: 80,
+			height: 20,
+			url: 'data/select.json',
+			method: 'post',			
+			// onBeforeLoad: function(params) {return true;},  
+			filter: function(data) {return data;},
+			onChange: function(oldVal, newVal) {console.log(this);},
+			onBeforeSelect: function(record) {console.log(this);},
+			onAfterSelect: function(record) {console.log(this);},
+			onLoadSuccess: function(data) {console.log(this);},  
+			onLoadError: function(error) {console.log(this);}
+		});
+		$('#select').JQSelect('reload', 'data/data.json');
+	</script>
+	
 </body>
 </html>
