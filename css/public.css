@@ -40,7 +40,7 @@ p {
 .row *,
 .header * {
 	letter-spacing: 0px;
-	font-size: 1em;
+	font-size: 1rem;
 }
 .header {
 	border-bottom: 1px solid currentColor;
