@@ -69,6 +69,13 @@
 	transform: rotate(180deg);
 }
 
+.JQSelect-options ul,
+.JQSelect-options li {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
 .JQSelect-options {
 	display: none;
 	position: absolute;
