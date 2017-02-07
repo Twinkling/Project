@@ -1,0 +1,36 @@
+html {
+	font-size: 14px;
+}
+body {
+	text-align: left;
+}
+
+h2 {
+	border-bottom: 1px solid #ccc;
+}
+
+p {
+	text-indent: 2em;
+	line-height: 1.5em;
+}
+p:first-letter {
+	font-weight: bold;
+	font-size: 2em;
+}
+
+ul,li {
+	padding: 0;
+	list-style-type: none;
+}
+
+.content .row {
+	background: transparent;
+}
+.row:nth-of-type(2n) {
+	background: #e6e6e6;
+}
+
+.desc > p:first-letter {
+	font-weight: normal;
+	font-size: 1em;
+}
