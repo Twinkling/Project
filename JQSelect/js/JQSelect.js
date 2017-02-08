@@ -1,9 +1,9 @@
 (function($) {
 	var defaultOptions = {
 		/* properties */
+		name: '',
 		width: 100,
 		height: 30,
-		name: '',
 		textAlign: 'center',
 		valueField: 'value',
 		textField: 'text',

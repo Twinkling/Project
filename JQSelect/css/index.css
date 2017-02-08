@@ -9,10 +9,6 @@ h2 {
 	border-bottom: 1px solid #ccc;
 }
 
-p {
-	text-indent: 2em;
-	line-height: 1.5em;
-}
 p:first-letter {
 	font-weight: bold;
 	font-size: 2em;
