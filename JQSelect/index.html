@@ -8,184 +8,269 @@
 	<link rel="stylesheet" href="../css/normalize.css">
 	<link rel="stylesheet" href="../css/public.css">
 	<link rel="stylesheet" href="css/JQSelect.css">
-	<link rel="stylesheet" href="../css/highlight/defaults.css">
+	<link rel="stylesheet" href="../css/highlight/docco.css">
 	<!-- <link rel="stylesheet" href="css/index.css"> -->
 	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
-	<script>hljs.initHighlightingOnLoad();</script>
-</head>
+	<script src="../js/highlight.min.js"></script>
+	<style>
+		li { 
+			margin-bottom: 1em;
+		}
+		.reload {
+			display: inline-block;
+			vertical-align: top;
+			color: #fff;
+			cursor: pointer;
+			background: #3399FF;
+			padding: 7px;
+			border-radius: 3px;
+		}
+	</style>
 <body>
 	<h1 style="text-align: center;">JQSelect - jQuery 下拉框插件</h1>
 	<h2>描述</h2>
 	<p class="description">依赖于jQuery库实现的下拉框插件，实现加载远程数据，在值改动前后，及数据加载完成或请求失败时均可进行额外操作</p>
 	<h2>示例</h2>
-	<div id="select" class="select"></div>
-	<div class="select"></div>
-	<!-- <h2>文档</h2> -->
-	<!-- <ul> -->
-		<!-- <li> -->
-			<h2>属性</h2>
-			<div class="content">
-				<div class="header">
-					<div class="name">名称</div>
-					<div class="type">值类型</div>
-					<div class="default">默认值</div>
-					<div class="desc"><p>描述</p></div>
-				</div>
-				<div class="row">
-					<div class="name">name</div>
-					<div class="type"><span class="title">类型:</span>String</div>
-					<div class="default"><span class="title">默认值:</span>null</div>
-					<div class="desc"><span class="title">描述:</span><p>控件的name属性，可以在表单提交时直接应用</p></div>
-				</div>
-				<div class="row">
-					<div class="name">width</div>
-					<div class="type"><span class="title">类型:</span>number</div>
-					<div class="default"><span class="title">默认值:</span>100</div>
-					<div class="desc"><span class="title">描述:</span><p>控件的宽度</p></div>
-				</div>
-				<div class="row">
-					<div class="name">height</div>
-					<div class="type"><span class="title">类型:</span>number</div>
-					<div class="default"><span class="title">默认值:</span>30</div>
-					<div class="desc"><span class="title">描述:</span><p>控件的高度</p></div>
-				</div>
-				<div class="row">
-					<div class="name">textAlign</div>
-					<div class="type"><span class="title">类型:</span>String</div>
-					<div class="default"><span class="title">默认值:</span>center</div>
-					<div class="desc"><span class="title">描述:</span><p>选中选项的文字水平对齐方式，可选值：center,left,right</p></div>
-				</div>
-				<div class="row">
-					<div class="name">valueField</div>
-					<div class="type"><span class="title">类型:</span>String</div>
-					<div class="default"><span class="title">默认值:</span>value</div>
-					<div class="desc"><span class="title">描述:</span><p>用于绑定选项基础数据值</p></div>
-				</div>
-				<div class="row">
-					<div class="name">textField</div>
-					<div class="type"><span class="title">类型:</span>String</div>
-					<div class="default"><span class="title">默认值:</span>text</div>
-					<div class="desc"><span class="title">描述:</span><p>用于绑定选项基础数据名称</p></div>
-				</div>
-				<div class="row">
-					<div class="name">url</div>
-					<div class="type"><span class="title">类型:</span>String</div>
-					<div class="default"><span class="title">默认值:</span>null</div>
-					<div class="desc"><span class="title">描述:</span><p>通过url加载远程列表数据</p></div>
-				</div>
-				<div class="row">
-					<div class="name">method</div>
-					<div class="type"><span class="title">类型:</span>String</div>
-					<div class="default"><span class="title">默认值:</span>get</div>
-					<div class="desc"><span class="title">描述:</span><p>请求远程数据的方式，可选值：get,post</p></div>
-				</div>
-				<div class="row">
-					<div class="name">queryParams</div>
-					<div class="type"><span class="title">类型:</span>Object</div>
-					<div class="default"><span class="title">默认值:</span>{}</div>
-					<div class="desc"><span class="title">描述:</span><p>请求远程数据的附加查询条件</p></div>
-				</div>
-				<div class="row">
-					<div class="name">data</div>
-					<div class="type"><span class="title">类型:</span>Array</div>
-					<div class="default"><span class="title">默认值:</span>null</div>
-					<div class="desc"><span class="title">描述:</span><p>本地数据，会覆盖远程请求的数据</p></div>
-				</div>
-				<div class="row">
-					<div class="name">filter</div>
-					<div class="type"><span class="title">类型:</span>Function</div>
-					<div class="default"><span class="title">默认值:</span></div>
-					<div class="desc"><span class="title">描述:</span><p>用于过滤数据的函数，返回值必须是包含一组对象的数组</p></div>
-				</div>
-			</div>
-		<!-- </li> -->
-		<!-- <li> -->
-			<h2>事件</h2>
-			<div class="content">
-				<div class="header">
-					<div class="name">名称</div>
-					<div class="params">参数</div>
-					<div class="desc"><p>描述</p></div>
-				</div>
-				<div class="row">
-					<div class="name">onChange</div>
-					<div class="params"><span class="title">参数:</span>newVal, oldVal</div>
-					<div class="desc"><span class="title">描述:</span><p>在选项值改变时触发</p></div>
-				</div>
-				<div class="row">
-					<div class="name">onBeforeSelect</div>
-					<div class="params"><span class="title">参数:</span>record</div>
-					<div class="desc"><span class="title">描述:</span><p>在选项选择之前触发</p></div>
-				</div>
-				<div class="row">
-					<div class="name">onAfterSelect</div>
-					<div class="params"><span class="title">参数:</span>record</div>
-					<div class="desc"><span class="title">描述:</span><p>在选项选择之后触发</p></div>
-				</div>
-				<div class="row">
-					<div class="name">onBeforeLoad</div>
-					<div class="params"><span class="title">参数:</span>params</div>
-					<div class="desc"><span class="title">描述:</span><p>在请求远程数据之前触发，返回false取消请求远程数据</p></div>
-				</div>
-				<div class="row">
-					<div class="name">onLoadSuccess</div>
-					<div class="params"><span class="title">参数:</span>data</div>
-					<div class="desc"><span class="title">描述:</span><p>在请求远程数据成功并且加载数据成功时触发</p></div>
-				</div>
-				<div class="row">
-					<div class="name">onLoadError</div>
-					<div class="params"><span class="title">参数:</span>error</div>
-					<div class="desc"><span class="title">描述:</span><p>在请求远程数据失败时触发</p></div>
-				</div>
-			</div>
-		<!-- </li> -->
-		<!-- <li> -->
-			<h2>方法</h2>
-			<div class="content">
-				<div class="header">
-					<div class="name">名称</div>
-					<div class="params"><span class="title">参数:</span>参数</div>
-					<div class="desc"><span class="title">描述:</span><p>描述</p></div>
-				</div>
-				<div class="row">
-					<div class="name">options</div>
-					<div class="params"><span class="title">参数:</span>none</div>
-					<div class="desc"><span class="title">描述:</span><p>返回属性对象</p></div>
-				</div>
-				<div class="row">
-					<div class="name">getData</div>
-					<div class="params"><span class="title">参数:</span>none</div>
-					<div class="desc"><span class="title">描述:</span><p>返回加载数据</p></div>
-				</div>
-				<div class="row">
-					<div class="name">loadData</div>
-					<div class="params"><span class="title">参数:</span>data</div>
-					<div class="desc"><span class="title">描述:</span><p>加载本地列表数据</p></div>
-				</div>
-				<div class="row">
-					<div class="name">reload</div>
-					<div class="params"><span class="title">参数:</span>url</div>
-					<div class="desc"><span class="title">描述:</span><p>根据'url'参数重写原始URL，加载远程列表数据</p></div>
-				</div>
-				<div class="row">
-					<div class="name">setValue</div>
-					<div class="params"><span class="title">参数:</span>value</div>
-					<div class="desc"><span class="title">描述:</span><p>设置下拉框的值</p></div>
-				</div>
-				<div class="row">
-					<div class="name">getValue</div>
-					<div class="params"><span class="title">参数:</span>none</div>
-					<div class="desc"><span class="title">描述:</span><p>获取下拉框的值</p></div>
-				</div>
-				<div class="row">
-					<div class="name">clear</div>
-					<div class="params"><span class="title">参数:</span>none</div>
-					<div class="desc"><span class="title">描述:</span><p>清空下拉框的值</p></div>
-				</div>
-			</div>
-		<!-- </li> -->
-	<!-- </ul> -->
+	<ul>
+		<li>
+			<p class="exampleTitle">加载远程数据</p>
+			<pre><code class="javascript">
+$('#remote').JQSelect({
+    url: 'data/select.json',
+    method: 'get'
+});
+			</code></pre>
+			<div id="remote"></div>
+		</li>
+		<li>
+			<p class="exampleTitle">加载本地数据</p>
+			<pre><code class="javascript">
+/* 方法一 直接在创建组件时给定data属性值 */
+$("#local").JQSelect({
+    data: [{
+        "text": "local1",
+        "value": "localVal1"
+    },{
+        "text": "local2",
+        "value": "localVal2"
+    }]
+});
+/* 方法二 使用loadData方法 */
+$("#local").JQSelect().JQSelect('loadData', [{
+	"text": "local1","value": "localVal1"
+},{
+	"text": "local2","value": "localVal2"
+}]);
+			</code></pre>
+			<div id="local"></div>
+		</li>
+		<li>
+			<p class="exampleTitle">选择之后触发事件，改变另一个JQSelect组件的值，形成多级联动</p>
+			<pre><code class="javascript">
+$('#afterSelect').JQSelect({
+	url: 'data/select.json',
+	method: 'get',
+	onAfterSelect: function(record) {
+		$('#associate').JQSelect('clear').JQSelect('reload', record);
+	}
+});
+			</code></pre>
+			<div id="afterSelect"></div>
+			<div id="associate"></div>
+		</li>
+		<li>
+			<p class="exampleTitle">过滤数据</p>
+			<pre><code class="javascript">
+$('#filter').JQSelect({
+	data: [{
+		"text": "local1","value": "localVal1"
+	},{
+		"text": "local2","value": "localVal2"
+	}],
+	filter: function(data) {
+		return data.filter(function(item, index, arr) {
+			if(item.value === "localVal1"){
+				return item;
+			}
+		});
+	}
+});
+			</code></pre>
+			<div id="filter"></div>
+		</li>
+		<li>
+			<p class="exampleTitle">清空原有数据，重新加载远程数据</p>
+			<pre><code class="javascript">
+$('#reload').JQSelect({
+	onLoadSuccess: function(data) {
+		alert('load success');
+	}
+});
+$('.reload').click(function(e) {
+	$('#reload').JQSelect('reload', $(this).attr('data-url'));
+});
+			</code></pre>
+			<div id="reload"></div>
+			<span class="reload" data-url="data/data.json">reload data.json</span>
+			<span class="reload" data-url="data/select.json">reload select.json</span>
+		</li>
+	</ul>	
+	<h2>属性</h2>
+	<div class="content">
+		<div class="header">
+			<div class="name">名称</div>
+			<div class="type">值类型</div>
+			<div class="default">默认值</div>
+			<div class="desc"><p>描述</p></div>
+		</div>
+		<div class="row">
+			<div class="name">name</div>
+			<div class="type"><span class="title">类型:</span>String</div>
+			<div class="default"><span class="title">默认值:</span>null</div>
+			<div class="desc"><span class="title">描述:</span><p>控件的name属性，可以在表单提交时直接应用</p></div>
+		</div>
+		<div class="row">
+			<div class="name">width</div>
+			<div class="type"><span class="title">类型:</span>number</div>
+			<div class="default"><span class="title">默认值:</span>100</div>
+			<div class="desc"><span class="title">描述:</span><p>控件的宽度</p></div>
+		</div>
+		<div class="row">
+			<div class="name">height</div>
+			<div class="type"><span class="title">类型:</span>number</div>
+			<div class="default"><span class="title">默认值:</span>30</div>
+			<div class="desc"><span class="title">描述:</span><p>控件的高度</p></div>
+		</div>
+		<div class="row">
+			<div class="name">textAlign</div>
+			<div class="type"><span class="title">类型:</span>String</div>
+			<div class="default"><span class="title">默认值:</span>center</div>
+			<div class="desc"><span class="title">描述:</span><p>选中选项的文字水平对齐方式，可选值：center,left,right</p></div>
+		</div>
+		<div class="row">
+			<div class="name">valueField</div>
+			<div class="type"><span class="title">类型:</span>String</div>
+			<div class="default"><span class="title">默认值:</span>value</div>
+			<div class="desc"><span class="title">描述:</span><p>用于绑定选项基础数据值</p></div>
+		</div>
+		<div class="row">
+			<div class="name">textField</div>
+			<div class="type"><span class="title">类型:</span>String</div>
+			<div class="default"><span class="title">默认值:</span>text</div>
+			<div class="desc"><span class="title">描述:</span><p>用于绑定选项基础数据名称</p></div>
+		</div>
+		<div class="row">
+			<div class="name">url</div>
+			<div class="type"><span class="title">类型:</span>String</div>
+			<div class="default"><span class="title">默认值:</span>null</div>
+			<div class="desc"><span class="title">描述:</span><p>通过url加载远程列表数据</p></div>
+		</div>
+		<div class="row">
+			<div class="name">method</div>
+			<div class="type"><span class="title">类型:</span>String</div>
+			<div class="default"><span class="title">默认值:</span>get</div>
+			<div class="desc"><span class="title">描述:</span><p>请求远程数据的方式，可选值：get,post</p></div>
+		</div>
+		<div class="row">
+			<div class="name">queryParams</div>
+			<div class="type"><span class="title">类型:</span>Object</div>
+			<div class="default"><span class="title">默认值:</span>{}</div>
+			<div class="desc"><span class="title">描述:</span><p>请求远程数据的附加查询条件</p></div>
+		</div>
+		<div class="row">
+			<div class="name">data</div>
+			<div class="type"><span class="title">类型:</span>Array</div>
+			<div class="default"><span class="title">默认值:</span>null</div>
+			<div class="desc"><span class="title">描述:</span><p>本地数据，会覆盖远程请求的数据</p></div>
+		</div>
+		<div class="row">
+			<div class="name">filter</div>
+			<div class="type"><span class="title">类型:</span>Function</div>
+			<div class="default"><span class="title">默认值:</span></div>
+			<div class="desc"><span class="title">描述:</span><p>用于过滤数据的函数，返回值必须是包含一组对象的数组</p></div>
+		</div>
+	</div>
+	<h2>事件</h2>
+	<div class="content">
+		<div class="header">
+			<div class="name">名称</div>
+			<div class="params">参数</div>
+			<div class="desc"><p>描述</p></div>
+		</div>
+		<div class="row">
+			<div class="name">onChange</div>
+			<div class="params"><span class="title">参数:</span>newVal, oldVal</div>
+			<div class="desc"><span class="title">描述:</span><p>在选项值改变时触发</p></div>
+		</div>
+		<div class="row">
+			<div class="name">onBeforeSelect</div>
+			<div class="params"><span class="title">参数:</span>record</div>
+			<div class="desc"><span class="title">描述:</span><p>在选项选择之前触发</p></div>
+		</div>
+		<div class="row">
+			<div class="name">onAfterSelect</div>
+			<div class="params"><span class="title">参数:</span>record</div>
+			<div class="desc"><span class="title">描述:</span><p>在选项选择之后触发</p></div>
+		</div>
+		<div class="row">
+			<div class="name">onBeforeLoad</div>
+			<div class="params"><span class="title">参数:</span>params</div>
+			<div class="desc"><span class="title">描述:</span><p>在请求远程数据之前触发，返回false取消请求远程数据</p></div>
+		</div>
+		<div class="row">
+			<div class="name">onLoadSuccess</div>
+			<div class="params"><span class="title">参数:</span>data</div>
+			<div class="desc"><span class="title">描述:</span><p>在请求远程数据成功并且加载数据成功时触发</p></div>
+		</div>
+		<div class="row">
+			<div class="name">onLoadError</div>
+			<div class="params"><span class="title">参数:</span>error</div>
+			<div class="desc"><span class="title">描述:</span><p>在请求远程数据失败时触发</p></div>
+		</div>
+	</div>
+	<h2>方法</h2>
+	<div class="content">
+		<div class="header">
+			<div class="name">名称</div>
+			<div class="params"><span class="title">参数:</span>参数</div>
+			<div class="desc"><span class="title">描述:</span><p>描述</p></div>
+		</div>
+		<div class="row">
+			<div class="name">options</div>
+			<div class="params"><span class="title">参数:</span>none</div>
+			<div class="desc"><span class="title">描述:</span><p>返回属性对象</p></div>
+		</div>
+		<div class="row">
+			<div class="name">getData</div>
+			<div class="params"><span class="title">参数:</span>none</div>
+			<div class="desc"><span class="title">描述:</span><p>返回加载数据</p></div>
+		</div>
+		<div class="row">
+			<div class="name">loadData</div>
+			<div class="params"><span class="title">参数:</span>data</div>
+			<div class="desc"><span class="title">描述:</span><p>加载本地列表数据</p></div>
+		</div>
+		<div class="row">
+			<div class="name">reload</div>
+			<div class="params"><span class="title">参数:</span>url</div>
+			<div class="desc"><span class="title">描述:</span><p>根据'url'参数重写原始URL，加载远程列表数据</p></div>
+		</div>
+		<div class="row">
+			<div class="name">setValue</div>
+			<div class="params"><span class="title">参数:</span>value</div>
+			<div class="desc"><span class="title">描述:</span><p>设置下拉框的值</p></div>
+		</div>
+		<div class="row">
+			<div class="name">getValue</div>
+			<div class="params"><span class="title">参数:</span>none</div>
+			<div class="desc"><span class="title">描述:</span><p>获取下拉框的值</p></div>
+		</div>
+		<div class="row">
+			<div class="name">clear</div>
+			<div class="params"><span class="title">参数:</span>none</div>
+			<div class="desc"><span class="title">描述:</span><p>清空下拉框的值</p></div>
+		</div>
+	</div>
 	
 
 	<script type="text/javascript" src="js/JQSelect.js"></script>

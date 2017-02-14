@@ -1,4 +1,4 @@
 [
-	{"value": "value3", "text": "text3"},
-	{"value": "value4", "text": "text4"}
+	{"value": "data/select.json", "text": "select"},
+	{"value": "data/data.json", "text": "data"}
 ]
