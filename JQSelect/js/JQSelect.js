@@ -111,18 +111,25 @@
 
 	/**/
 	function clickHandler(e) {
-		$(this).find('.JQSelect-icon').addClass('JQSelect-rotate180');
-		$(this).find('.JQSelect-options').slideDown();
+		$(this).find('.JQSelect-options').stop(true);
+		$(this).find('.JQSelect-icon').toggleClass('JQSelect-rotate180');
+		if($(this).find('.JQSelect-icon').hasClass('JQSelect-rotate180')) {
+			$(this).find('.JQSelect-options').slideDown();
+		} else {
+			$(this).find('.JQSelect-options').slideUp();
+		}
 
 		e.stopPropagation();
 	}
 
-	/**/
+	/*
 	function mouseleaveHandler(e) {
 		$(this).find('.JQSelect-icon').removeClass('JQSelect-rotate180');
 		$(this).find('.JQSelect-options').slideUp();
+
 		e.stopPropagation();
 	}
+	*/
 
 	function create(target) {
 		var state = $.data(target, 'JQSelect');
@@ -237,8 +244,9 @@
 
 	$.fn.JQSelect.defaults = $.extend({}, defaultOptions, {
 		events: {
-			click: clickHandler,
-			mouseleave: mouseleaveHandler
+			click: clickHandler
+			// ,blur: mouseleaveHandler
+			// ,mouseleave: mouseleaveHandler
 		}
 		,loader: function(params, success, error) {
 			var opts = $(this).JQSelect('options');
