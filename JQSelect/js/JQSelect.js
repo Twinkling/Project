@@ -1,4 +1,4 @@
-(function($) {
+;(function($) {
 	var defaultOptions = {
 		/* properties */
 		name: '',
@@ -25,12 +25,12 @@
 	/* parser parameter */
 	function parserOptions(opts) {
 		;
-	}
+	};
 
 	/* parser DOM struct, parser options */
 	function parserDOM(DOM) {
 		;
-	}
+	};
 
 	function setValues(target, value) {
 		var state = $.data(target, 'JQSelect');
@@ -48,7 +48,7 @@
 			opts.onChange.call(target, oldVal, value);
 			opts.onAfterSelect.call(target, value);
 		}
-	}
+	};
 
 	function render(target) {
 		var state = $.data(target, 'JQSelect');
@@ -80,7 +80,7 @@
 
 			e.stopPropagation();
 		}
-	}
+	};
 
 	/* load data */
 	function loadData(target, data) {
@@ -91,7 +91,7 @@
 		render(target);
 
 		opts.onLoadSuccess.call(target, data);
-	}
+	};
 
     /* request remote data if url is setted */
 	function request(target, url, params) {
@@ -107,7 +107,7 @@
 		}, function(){
 			opts.onLoadError.apply(this, arguments);
 		});
-	}
+	};
 
 	/**/
 	function clickHandler(e) {
@@ -120,7 +120,7 @@
 		}
 
 		e.stopPropagation();
-	}
+	};
 
 	/*
 	function mouseleaveHandler(e) {
@@ -157,7 +157,7 @@
 		}
 
 		state.JQSelect = $wrapper;
-	}
+	};
 
 	/* modify default options */
 	/*function modifyDefault(opts) {
@@ -193,7 +193,7 @@
 
 			request(this);
 		});
-	}
+	};
 
 	$.fn.JQSelect.method = {
 		options: function(jq) {  // get instance options
@@ -240,7 +240,7 @@
 				$JQSelect.find('.val').text('请选择');
 			});
 		}
-	}
+	};
 
 	$.fn.JQSelect.defaults = $.extend({}, defaultOptions, {
 		events: {
