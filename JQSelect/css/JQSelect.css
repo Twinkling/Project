@@ -41,7 +41,11 @@
 
 .JQSelect-selected {
 	position: relative;
-	box-sizing: border-box;
+
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+			box-sizing: border-box;
+
 	width: 100px;
 	height: 30px;
 	/*min-height: 24px;*/
@@ -61,8 +65,24 @@
 	left: auto;
 	width: 24px;
 	height: 24px;
-	background: url('../imgs/drop-down.png') center no-repeat;
+	/*background: url('../imgs/drop-down.png') center no-repeat;*/
 	transition: transform .5s;
+}
+
+.JQSelect-icon:after {
+	content: '';
+	border: 5px solid #666;
+	border-left-color: transparent;
+	border-right-color: transparent;
+	border-bottom: none;
+	width: 0;
+	height: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
 }
 
 .JQSelect-rotate180 {
@@ -85,7 +105,11 @@
 	width: 100px;
 	height: auto;
 	overflow-y: auto;
-	box-sizing: border-box;
+
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+			box-sizing: border-box;
+
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 	text-align: center;  /* options value align */
@@ -96,7 +120,11 @@
 	width: 100%;
 	height: 30px;
 	background: #fff;
-	box-sizing: border-box;
+
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+			box-sizing: border-box;
+
 	border-left: 1px solid #ccc;
 	border-right: 1px solid #ccc;
 }

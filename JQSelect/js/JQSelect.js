@@ -181,6 +181,7 @@
 					data: []
 				});
 			}
+			
 			create(this);
 			if(state.options.data) {
 				loadData(this, state.options.data);
