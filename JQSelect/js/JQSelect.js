@@ -1,11 +1,9 @@
-/*! 
-*/
-;(function($) {
+(function($) {
 	var defaultOptions = {
 		/* properties */
+		name: '',
 		width: 100,
 		height: 30,
-		name: '',
 		textAlign: 'center',
 		valueField: 'value',
 		textField: 'text',
@@ -27,12 +25,12 @@
 	/* parser parameter */
 	function parserOptions(opts) {
 		;
-	};
+	}
 
 	/* parser DOM struct, parser options */
 	function parserDOM(DOM) {
 		;
-	};
+	}
 
 	function setValues(target, value) {
 		var state = $.data(target, 'JQSelect');
@@ -50,7 +48,7 @@
 			opts.onChange.call(target, oldVal, value);
 			opts.onAfterSelect.call(target, value);
 		}
-	};
+	}
 
 	function render(target) {
 		var state = $.data(target, 'JQSelect');
@@ -82,7 +80,7 @@
 
 			e.stopPropagation();
 		}
-	};
+	}
 
 	/* load data */
 	function loadData(target, data) {
@@ -93,7 +91,7 @@
 		render(target);
 
 		opts.onLoadSuccess.call(target, data);
-	};
+	}
 
     /* request remote data if url is setted */
 	function request(target, url, params) {
@@ -109,22 +107,29 @@
 		}, function(){
 			opts.onLoadError.apply(this, arguments);
 		});
-	};
+	}
 
 	/**/
 	function clickHandler(e) {
-		$(this).find('.JQSelect-icon').addClass('JQSelect-rotate180');
-		$(this).find('.JQSelect-options').slideDown();
+		$(this).find('.JQSelect-options').stop(true);
+		$(this).find('.JQSelect-icon').toggleClass('JQSelect-rotate180');
+		if($(this).find('.JQSelect-icon').hasClass('JQSelect-rotate180')) {
+			$(this).find('.JQSelect-options').slideDown();
+		} else {
+			$(this).find('.JQSelect-options').slideUp();
+		}
 
 		e.stopPropagation();
-	};
+	}
 
-	/**/
+	/*
 	function mouseleaveHandler(e) {
 		$(this).find('.JQSelect-icon').removeClass('JQSelect-rotate180');
 		$(this).find('.JQSelect-options').slideUp();
+
 		e.stopPropagation();
-	};
+	}
+	*/
 
 	function create(target) {
 		var state = $.data(target, 'JQSelect');
@@ -152,7 +157,7 @@
 		}
 
 		state.JQSelect = $wrapper;
-	};
+	}
 
 	/* modify default options */
 	/*function modifyDefault(opts) {
@@ -181,7 +186,6 @@
 					data: []
 				});
 			}
-			
 			create(this);
 			if(state.options.data) {
 				loadData(this, state.options.data);
@@ -189,7 +193,7 @@
 
 			request(this);
 		});
-	};
+	}
 
 	$.fn.JQSelect.method = {
 		options: function(jq) {  // get instance options
@@ -236,12 +240,13 @@
 				$JQSelect.find('.val').text('请选择');
 			});
 		}
-	};
+	}
 
 	$.fn.JQSelect.defaults = $.extend({}, defaultOptions, {
 		events: {
-			click: clickHandler,
-			mouseleave: mouseleaveHandler
+			click: clickHandler
+			// ,blur: mouseleaveHandler
+			// ,mouseleave: mouseleaveHandler
 		}
 		,loader: function(params, success, error) {
 			var opts = $(this).JQSelect('options');
